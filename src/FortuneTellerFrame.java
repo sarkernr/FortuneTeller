@@ -9,10 +9,10 @@ public class FortuneTellerFrame extends JFrame {
     private final JTextArea fortuneTextArea;
     private final ArrayList<String> fortunes;
     private int lastFortuneIndex = -1;
+    private ImageIcon icon;
 
     public FortuneTellerFrame() {
         setTitle("Fortune Teller");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Set JFrame size to ¾ of the screen width and center it
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -23,7 +23,7 @@ public class FortuneTellerFrame extends JFrame {
 
         // Top Panel with JLabel and ImageIcon
         JPanel topPanel = new JPanel();
-        ImageIcon icon = new ImageIcon("fortune_teller.png"); // Ensure the image is in the project folder
+        icon = new ImageIcon("src/fortuneteller.jpg");
         JLabel titleLabel = new JLabel("Fortune Teller", icon, JLabel.CENTER);
         titleLabel.setFont(new Font("Serif", Font.BOLD, 48));
         titleLabel.setHorizontalTextPosition(JLabel.CENTER);
@@ -83,15 +83,5 @@ public class FortuneTellerFrame extends JFrame {
         lastFortuneIndex = newIndex;
 
         fortuneTextArea.append(fortunes.get(newIndex) + "\n");
-    }
-}
-
-// FortuneTellerViewer main class
-class FortuneTellerViewer {
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            FortuneTellerFrame frame = new FortuneTellerFrame();
-            frame.setVisible(true);
-        });
     }
 }
